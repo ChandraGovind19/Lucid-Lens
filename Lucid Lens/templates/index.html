@@ -1,1 +1,70 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucid Lens</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            max-width: 1500px;
+            margin: 0;
+            background: linear-gradient(170deg, purple, rgb(120, 120, 255), darkblue);
+            background-attachment: fixed; /* Ensures smooth scrolling effect */
+            color: white; /* Ensures text is readable on the gradient */
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: white;
+            font-size: 3rem; /* Increased the font size for the title */
+        }
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        textarea {
+            width: 95%; /* Increased width to almost fill the screen */
+            max-width: 1500px; /* Increased maximum width for larger screens */
+            height: 400px; /* Significantly increased height */
+            padding: 20px; /* Added more padding for comfort */
+            font-size: 17px; /* Increased font size for the text */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none; /* Prevent resizing if desired */
+        }
+        button {
+            margin-top: 20px;
+            padding: 15px 30px; /* Increased button size slightly */
+            font-size: 18px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lucid Lens</h1>
+    <div class="input-container">
+        <textarea id="userInput" placeholder="Enter your text here..."></textarea>
+        <button onclick="sendText()">Submit</button>
+    </div>
+    <script>
+        function sendText() {
+            const text = document.getElementById('userInput').value;
+            console.log('Text submitted:', text); // Placeholder for backend integration
+            alert('Text submitted: ' + text); // Simulates text submission
+        }
+    </script>
+</body>
+</html>
