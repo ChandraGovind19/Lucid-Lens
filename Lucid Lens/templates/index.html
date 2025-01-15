@@ -13,13 +13,13 @@
         <button onclick="sendText()">Generate Dream Image</button>
     </div>
 
-    <!-- Loading Spinner and Message -->
+    
     <div id="loading" style="display:none;">
         Please wait a few minutes, your dream image is being generated...
     </div>
     <div id="loadingSpinner" class="spinner" style="display:none;"></div>
 
-    <!-- Output Section -->
+    
     <div id="output">
         <h2>Generated Image:</h2>
         <img id="dreamImage" src="" alt="Your dream image will appear here." hidden>
@@ -27,24 +27,24 @@
 
     <script>
         async function sendText() {
-            // Get the dream description from the textarea
+            
             const dreamDescription = document.getElementById('userInput').value.trim();
 
-            // Validate input
+            
             if (!dreamDescription) {
                 alert("Please enter a dream description!");
                 return;
             }
 
-            // Show loading indicator
+            
             document.getElementById('loading').style.display = 'block';
             document.getElementById('loadingSpinner').style.display = 'block';
 
-            // Hide the image and output section
+            
             const imgElement = document.getElementById('dreamImage');
             imgElement.hidden = true;
 
-            // Send the description to the backend
+            
             try {
                 const response = await fetch('/generate', {
                     method: 'POST',
@@ -58,7 +58,7 @@
                     const data = await response.json();
                     const imageUrl = data.image_url;
 
-                    // Display the image in the frontend
+                    
                     imgElement.src = imageUrl;
                     imgElement.hidden = false;
                 } else {
@@ -69,7 +69,7 @@
                 console.error('Error:', error);
                 alert('An error occurred. Please try again.');
             } finally {
-                // Hide loading indicator
+                
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('loadingSpinner').style.display = 'none';
             }
